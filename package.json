@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/dove8023/static#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.2",
+    "ip": "^1.1.5",
+    "koa": "^2.2.0"
   }
 }

@@ -6,8 +6,40 @@
 </head>
 <body>
     <h1>Nice</h1>
-    <form action="/update" method="post">
+    <form id="form" action="/update" method="post">
+        <h4>更新服务器操作</h4>
+        <input type="text" placeholder="Enter username">
+        <input type="password" placeholder="Enter password">
         <button>Update</button>
     </form>
 </body>
 </html>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    var formE = $("#form");
+    formE.find("button").click(function(e){
+        e.preventDefault();
+        var username = formE.find('input[type=text]').val().trim();
+        var password = formE.find('input[type=password]').val().trim();
+        if(username && password){
+            $.ajax({
+                method: "post",
+                type  : "json",
+                url   : "/update",
+                data  : {
+                    username : username,
+                    password : password
+                },
+                success : function(result){
+                    console.log(123, result);
+                },
+                error  : function(err){
+                    console.log(err);
+                }
+            })
+        }else{
+            alert("Username and password has been be must.")
+        }
+    });
+</script>
