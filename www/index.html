@@ -5,7 +5,10 @@
     <title>首页</title>
 </head>
 <body>
-    <h1>Nice</h1>
+    <h1>静态文件演示</h1>
+    <h3>
+        eg: <a href="http://www.goodsinfo.cn:3000/hxs/">http://www.goodsinfo.cn:3000/hxs/</a>
+    </h3>
     <form id="form" action="/update" method="post">
         <h4>更新服务器操作</h4>
         <input type="text" placeholder="Enter username">
@@ -13,9 +16,9 @@
         <button>Update</button>
     </form>
     <hr>
-    <pre id="result">
+    <div id="result">
         
-    </pre>
+    </div>
 </body>
 </html>
 
@@ -28,7 +31,6 @@
         var username = formE.find('input[type=text]').val().trim();
         var password = formE.find('input[type=password]').val().trim();
         if(username && password){
-
             $.ajax({
                 method: "post",
                 type  : "json",
@@ -38,9 +40,8 @@
                     password : password
                 },
                 success : function(result){
-                    console.log(123, result);
                     var str = result.stdout || result.stderr;
-                    resultE.html(resultE.html + str);
+                    resultE.html(resultE.html() + str);
                 },
                 error  : function(err){
                     console.log(err);

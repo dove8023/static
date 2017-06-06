@@ -34,7 +34,13 @@ app.use(bodyParser.json());
 
 app.post("/update", (req, res)=>{
     console.log(req.body);
+    res.json({
+        error : null,
+        stdout: "stdout",
+        stderr: "stderr"
+    });
 
+    return;
     
 
     if(!req.body.username || !req.body.password){
@@ -54,13 +60,13 @@ app.post("/update", (req, res)=>{
         return;
     }
 
-    child.exec("git pull", (error, stdout, stderr)=>{
+    /*child.exec("git pull", (error, stdout, stderr)=>{
         res.json({
             error : error,
             stdout: stdout,
             stderr: stderr
         })
-    });
+    });*/
 });
 
 
