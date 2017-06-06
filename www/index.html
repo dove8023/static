@@ -27,6 +27,7 @@
         var username = formE.find('input[type=text]').val().trim();
         var password = formE.find('input[type=password]').val().trim();
         if(username && password){
+            
             $.ajax({
                 method: "post",
                 type  : "json",
