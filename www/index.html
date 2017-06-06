@@ -12,6 +12,10 @@
         <input type="password" placeholder="Enter password">
         <button>Update</button>
     </form>
+    <hr>
+    <div id="result">
+        
+    </div>
 </body>
 </html>
 
@@ -33,6 +37,7 @@
                 },
                 success : function(result){
                     console.log(123, result);
+                    $("#result").html(result.stdout || result.stderr);
                 },
                 error  : function(err){
                     console.log(err);
