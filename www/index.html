@@ -13,21 +13,22 @@
         <button>Update</button>
     </form>
     <hr>
-    <div id="result">
+    <pre id="result">
         
-    </div>
+    </pre>
 </body>
 </html>
 
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
-    var formE = $("#form");
+    var formE = $("#form"),
+        resultE = $("#result");
     formE.find("button").click(function(e){
         e.preventDefault();
         var username = formE.find('input[type=text]').val().trim();
         var password = formE.find('input[type=password]').val().trim();
         if(username && password){
-            
+
             $.ajax({
                 method: "post",
                 type  : "json",
@@ -38,7 +39,8 @@
                 },
                 success : function(result){
                     console.log(123, result);
-                    $("#result").html(result.stdout || result.stderr);
+                    var str = result.stdout || result.stderr;
+                    resultE.html(resultE.html + str);
                 },
                 error  : function(err){
                     console.log(err);
