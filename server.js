@@ -60,13 +60,13 @@ app.post("/update", (req, res)=>{
         return;
     }
 
-    /*child.exec("git pull", (error, stdout, stderr)=>{
+    child.exec("git pull", (error, stdout, stderr)=>{
         res.json({
             error : error,
             stdout: stdout,
             stderr: stderr
         })
-    });*/
+    });
 });
 
 
