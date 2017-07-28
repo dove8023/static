@@ -34,13 +34,13 @@ app.use(bodyParser.json());
 
 app.post("/update", (req, res)=>{
     console.log(req.body);
-    res.json({
+    /*res.json({
         error : null,
         stdout: "stdout",
         stderr: "stderr"
     });
 
-    return;
+    return;*/
     
 
     if(!req.body.username || !req.body.password){
