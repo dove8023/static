@@ -23,11 +23,7 @@ app.use((req, res, next)=>{
     
     next();
 });
-app.use((req, res, next)=>{
-    console.log("what");
-    res.header("Content-Type", "text/json; charset=utf-8");
-    next();
-})
+
 app.use(express.static("./www"));
 
 // parse application/x-www-form-urlencoded
@@ -96,7 +92,7 @@ app.post("/update", (req, res)=>{
     });
 });
 
-
+console.log(module);
 
 let server = http.createServer(app);
 server.listen(3000, ()=>{
